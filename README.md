@@ -10,3 +10,10 @@
 2. 将要放的歌放到 `static` 文件夹下，重命名为 `bgm.mp3`
 3. 进入 `script` 文件夹，运行 `init.bat`
 4. 进入 `bin` 文件夹，运行 `audiokw.exe`
+
+## 命令行使用
+```
+Usage: audiokw [-t interval] [-h]
+    -h    Print help message
+    -t    Check session state every $interval ms, 500 ms by default
+```
