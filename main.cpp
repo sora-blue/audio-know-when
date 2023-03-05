@@ -90,13 +90,31 @@ public:
         }
     }
 };
-int main() {
+int main(int argc, char **argv) {
+    int interval = 500;
+    // args
+    const char * optStr = "ht:";
+    int opt;
+    while((opt = getopt(argc, argv, optStr)) != -1){
+        switch(opt){
+            case 't':
+                interval = atoi(optarg);
+                break;
+            case 'h':
+            default:
+                printf("Usage: audiokw [-t interval] [-h]\n"
+                       "\t-h\tPrint help message\n"
+                       "\t-t\tCheck session state every $interval ms");
+                exit(0);
+        }
+    }
+    //
     CoInitialize(nullptr);
     //
     auto detector = new AudioStateDetector;
-    for(int i = 0 ; i < 5000 ; i++){
+    for( ;  ; ){
         detector->exec();
-        Sleep(500);
+        Sleep(interval);
     }
     delete detector;
     //
