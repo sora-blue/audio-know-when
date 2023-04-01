@@ -1,2 +1,1 @@
-@echo off
-fmedia.exe ..\static\bgm.mp3 --volume=60 --globcmd=listen
+..\fmedia\fmedia.exe --flist=%1 --volume=60 --globcmd=listen --repeat-all
